@@ -17,7 +17,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div style={{display:'flex',alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
+      <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon"></link> 
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>  
@@ -27,10 +27,10 @@ class Home extends Component {
             <nav class="navbar">
                 <div class="container">
                     <div class="navbar-brand ">
-                        {/* <a class="navbar-item" href="../">
-                            <img src="../images/bulma.png" alt="Logo"/>
-                        </a> */}
+                        <a class="navbar-item" href="../">
                         <h1 >HAIR-STAFF</h1>
+                            {/* <img src="../images/bulma.png" alt="Logo"/> */}
+                        </a> 
                         <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
                             <span></span>
                             <span></span>
@@ -42,10 +42,9 @@ class Home extends Component {
                             <div class="tabs is-right">
                                 <ul class="menuppal">
                                     <li class="is-active"><a>Home</a></li>
-                                    <li><a href="">Examples</a></li>
-                                    <li><a href="">Features</a></li>
-                                    <li><a href="">Team</a></li>
-                                    <li><a href="">Help</a></li>
+                                    <li><a href="">Acerca de</a></li>
+                                    <li><a href="/signup">Registrate</a></li>
+                                    <li><a href="/login">Login</a></li>
                                 </ul>
                             </div>
                         </div>
