@@ -75,7 +75,10 @@ export default class Profile extends Component {
            <div class="container has-text-centered">
                <div class="columns is-vcentered">
                     <div class="column is-5">
-                        Bienvenido <h2>{user.name}</h2>
+                        Bienvenido <h1>{user.name}</h1>
+                        <br></br>
+                        <br></br>
+                        <h2>{user.tipo}</h2>
                         <br></br>
                         <br></br>
                         <figure class="image is-128x128">

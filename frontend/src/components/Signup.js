@@ -7,6 +7,56 @@ class Signup extends Component {
     user: {}
   };
 
+  selectTipo =(e)=>{
+    //aqui activo el formulario para aspirante
+    const aspiForm=document.querySelector('.aspirante')
+    const empForm=document.querySelector('.empresa')
+    const recluForm=document.querySelector('.reclutador')
+    let tipoUsuario = document.getElementById("tipo").value;
+    const { user } = this.state;
+    
+    switch(tipoUsuario)
+    {
+      case 'Aspirante':{
+        console.log('entraste a aspirante')
+        aspiForm.style.display='block';
+        empForm.style.display='none';
+        recluForm.style.display='none';
+      
+        const key = e.target.name;
+        user[key] = e.target.value;
+        console.log(user)
+        this.setState({ user });
+      }
+      break;
+      case 'Empresa':{
+        console.log('entrste a empresa')
+        aspiForm.style.display='none';
+        empForm.style.display='block';
+        recluForm.style.display='none';
+        const key = e.target.name;
+        user[key] = e.target.value;
+        console.log(user)
+        this.setState({ user });
+      }
+      break;
+      case 'Reclutador':{
+        console.log('entrste a reclutador')
+        aspiForm.style.display='none';
+        empForm.style.display='none';
+        recluForm.style.display='block';
+        const key = e.target.name;
+        user[key] = e.target.value;
+        console.log(user)
+        this.setState({ user });
+      }
+      break;
+      default:
+      break;
+    }
+    
+  }
+
   ham=(e)=>{
     var burger = document.querySelector('.burger');
     var menu = document.querySelector('#'+burger.dataset.target);
@@ -15,13 +65,13 @@ class Signup extends Component {
     menu.classList.toggle('is-active');
     };
 
-  handleInput = (e) => {
-    const { user } = this.state;
-    const key = e.target.name;
-    user[key] = e.target.value;
-    console.log(user)
-    this.setState({ user });
-  };
+    handleInput = (e) => {
+      const { user } = this.state;
+      const key = e.target.name;
+      user[key] = e.target.value;
+      console.log(user)
+      this.setState({ user });
+    };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -83,12 +133,12 @@ class Signup extends Component {
                      </div>
                      <div class="column is-6 is-offset-1">
                      <section class="hero is-fullheight is-medium is-bold">
-        <div>
-          <div class="container">
-            <div class="columns is-centered">
-              <article class="card is-rounded">
-                <div class="card-content">
-                  
+                  <div>
+                    <div class="container">
+                      <div class="columns is-centered">
+                        <article class="card is-rounded">
+                          <div class="card-content">
+                            
 
                   <form onSubmit={this.onSubmit} class="box">
                     <label for="name" class="label">Nombre: </label>
@@ -112,7 +162,28 @@ class Signup extends Component {
                       <i class="fa fa-lock"></i>
                     </span>
                     </div>
-                   
+                    <div class="field">
+                        <label class="label">Tipo de usuario</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="tipo" name="tipo" onChange={this.selectTipo}>
+                              <option>Seleccione una opción </option>
+                              <option value="Aspirante">Aspirante</option>
+                              <option value="Empresa">Empresa</option>
+                              <option value="Reclutador">Reclutador</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="aspirante">
+                        Hola aspirante
+                      </div> 
+                      <div class="empresa">
+                        Hola empresa
+                      </div> 
+                      <div class="reclutador">
+                        Hola reclutador
+                      </div>                  
                     <div>
                       <input onChange={this.handleInput} type="hidden" name="isEmployee" value="true"/>
                     </div>
