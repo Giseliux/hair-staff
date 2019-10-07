@@ -12,6 +12,14 @@ export default class Profile extends Component {
     }
   };
 
+  ham=(e)=>{
+    var burger = document.querySelector('.burger');
+    var menu = document.querySelector('#'+burger.dataset.target);
+       
+    burger.classList.toggle('is-active');
+    menu.classList.toggle('is-active');
+    };
+
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login');
     const userinfo = this.context.state.loggedUser
@@ -39,7 +47,7 @@ export default class Profile extends Component {
                <div class="container">
                    <div class="navbar-brand ">
                        <a class="navbar-item" href="../">
-                       <h1 >HAIR-STAFF</h1>
+                       <h1 >HEIR-STAFF</h1>
                            {/* <img src="../images/bulma.png" alt="Logo"/> */}
                        </a> 
                        <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
@@ -52,10 +60,10 @@ export default class Profile extends Component {
                        <div class="navbar-end">
                            <div class="tabs is-right">
                                <ul class="menuppal">
-                                   <li class="is-active"><a>Home</a></li>
-                                   <li><a href="">Acerca de</a></li>
-                                   <li><a href="/signup">Registrate</a></li>
-                                   <li><a href="/login">Login</a></li>
+                                 <li class="is-active"><a href="/">Inicio</a></li>
+                                    <li><a href="/#contenido">Acerca de</a></li>
+                                    <li><a href="/signup">Registro</a></li>
+                                    <li><a href="/login">Iniciar sesión</a></li>
                                </ul>
                            </div>
                        </div>
@@ -66,19 +74,18 @@ export default class Profile extends Component {
       <div class="hero-body">
            <div class="container has-text-centered">
                <div class="columns is-vcentered">
-                   
-                  Bienvenido <h2>{user.name}</h2>
-          <br></br>
-       
-                  <figure class="image is-128x128">
-        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
-      </figure>
-      <Button type="danger" style={{width: '10vw', float: 'left'}} onClick={this.logout}>Log out</Button>
+                    <div class="column is-5">
+                        Bienvenido <h2>{user.name}</h2>
+                        <br></br>
+                        <br></br>
+                        <figure class="image is-128x128">
+                        <img class="is-rounded" src="/imagenes/avatar.png"/>
+                        </figure>
+                        <a class="button is-danger is-outlined" onClick={this.logout}>Cerrar sesión</a>
+                    </div>
                </div>
            </div>
        </div>
-
-
       <div class="hero-foot">
            <div class="container">
                <div class="tabs is-centered">
