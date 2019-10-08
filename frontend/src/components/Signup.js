@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 //import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
 
+
 class Signup extends Component {
   state = {
     user: {},
-    aspirante:{}
+    empresas:[]
   };
+
+  // dameEmpresa=(e)=>{
+  //   listaEmpresas = db.empresas.find()
+  // }
 
   selectTipo =(e)=>{
     //aqui activo el formulario para aspirante
