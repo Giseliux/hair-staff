@@ -51,7 +51,7 @@ class Login extends Component {
                  <div class="container">
                      <div class="navbar-brand ">
                          <a class="navbar-item" href="../">
-                         <h1 >HEIR-STAFF</h1>
+                         <h1 >HIRE-STAFF</h1>
                              {/* <img src="../images/bulma.png" alt="Logo"/> */}
                          </a> 
                          <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>

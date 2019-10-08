@@ -28,7 +28,7 @@ class Home extends Component {
                 <div class="container">
                     <div class="navbar-brand ">
                         <a class="navbar-item" href="../">
-                        <h1 >HEIR-STAFF</h1>
+                        <h1 >HIRE-STAFF</h1>
                             {/* <img src="../images/bulma.png" alt="Logo"/> */}
                         </a> 
                         <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
@@ -62,7 +62,7 @@ class Home extends Component {
                     </div>
                     <div class="column is-6 is-offset-1">
                         <h1 class="title is-2">
-                            HEIR STAFF
+                            HIRE STAFF
                         </h1>
                         <h2 class="subtitle is-4">
                            La plataforma que te conecta con tu nuevo personal.
@@ -82,7 +82,7 @@ class Home extends Component {
                 <div class="columns is-vcentered">
                 <div class="column is-6 is-offset-1">
                         <p>
-                         Heir Staff es una app pensada para ti que eres una startup y necesitas contratar a personal 
+                         Hire Staff es una app pensada para ti que eres una startup y necesitas contratar a personal 
                            altamente calificado a bajo costo.
                            <br></br><br></br>
                            Esta app engloba aspectos generales a evaluar para la selección de nuevo personal, a través 

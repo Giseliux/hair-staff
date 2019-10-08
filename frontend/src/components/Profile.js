@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../context/index';
-import {  Button } from 'antd';
-import { Link } from 'react-router-dom'
+// import {  Button } from 'antd';
+// import { Link } from 'react-router-dom'
 
 export default class Profile extends Component {
   
@@ -47,7 +47,7 @@ export default class Profile extends Component {
                <div class="container">
                    <div class="navbar-brand ">
                        <a class="navbar-item" href="../">
-                       <h1 >HEIR-STAFF</h1>
+                       <h1 >HIRE-STAFF</h1>
                            {/* <img src="../images/bulma.png" alt="Logo"/> */}
                        </a> 
                        <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>

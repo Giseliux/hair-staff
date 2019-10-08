@@ -4,7 +4,8 @@ import AUTH_SERVICE from '../services/auth';
 
 class Signup extends Component {
   state = {
-    user: {}
+    user: {},
+    aspirante:{}
   };
 
   selectTipo =(e)=>{
@@ -78,7 +79,9 @@ class Signup extends Component {
      AUTH_SERVICE.signup(this.state.user)
     
       .then((response) => {
+        console.log('entre a submit')
         console.log(response.data);
+        console.log(this.state.user)
       })
       .catch((error) => {
         console.log(error);
@@ -99,7 +102,7 @@ class Signup extends Component {
                  <div class="container">
                      <div class="navbar-brand ">
                          <a class="navbar-item" href="../">
-                         <h1 >HEIR-STAFF</h1>
+                         <h1 >HIRE-STAFF</h1>
                              {/* <img src="../images/bulma.png" alt="Logo"/> */}
                          </a> 
                          <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
@@ -176,13 +179,114 @@ class Signup extends Component {
                         </div>
                       </div> 
                       <div class="aspirante">
-                        Hola aspirante
+                      <div class="field">
+                        <label class="label">Puesto solicitado</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="tipoPuesto" name="tipoPuesto" onChange={this.handleInput}>
+                              <option>Seleccione una opción </option>
+                              <option value="Directivos">Directivos</option>
+                              <option value="Jefe operativo">Jefe operativo</option>
+                              <option value="Operativo">Operativo</option>
+                              <option value="Auxiliar administrativo">Auxiliar administrativo</option>
+                              <option value="Administrativo">Administrativo</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <br/>
+                    <label for="edad" class="label">Edad: </label>
+                    <div class="control has-icons-left">
+                      <input onChange={this.handleInput} type="edad" name="edad" id="edad"  class="input" placeholder="Edad" required/>
+                       <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    </div>
+                    <div class="field">
+                        <label class="label">Nivel de estudios</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="nivelEstudios" name="nivelEstudios" onChange={this.handleInput}>
+                              <option>Seleccione una opción </option>
+                              <option value="Sin estudios">Sin estudios</option>
+                              <option value="Primaria">Primaria</option>
+                              <option value="Secundaria">Secundaria</option>
+                              <option value="Preparatoria">Preparatoria</option>
+                              <option value="Licenciatura">Licenciatura</option>
+                              <option value="Posgrado">Posgrado</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <label for="lugarEstudios" class="label">Lugar de Estudios: </label>
+                    <div class="control has-icons-left">
+                      <input onChange={this.handleInput} type="lugarEstudios" name="lugarEstudios" id="lugarEstudios"  class="input" placeholder="Lugar de Estudios" required/>
+                       <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    </div>
+                    <div class="field">
+                        <label class="label">¿Qué puede aportar a la empresa?</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="aportacion" name="aportacion" onChange={this.handleInput}>
+                              <option>Seleccione una opción </option>
+                              <option value="Aumentar la producción a traves de la mejora del ambiente laboral">Aumentar la produccion a traves de la mejora del ambiente laboral</option>
+                              <option value="Aumentar la producción a traves de la innovación en procesos">Aumentar la producción a traves de la innovación en procesos</option>
+                              <option value="Aumentar la producción a traves de generar mejora continua en los procesos de producción.">Aumentar la producción a traves de generar mejora continua en los procesos de producción.</option>
+                              <option value="Reducir los errores o mermas a travess de la implementación de mejoras en los procesos.">Reducir los errores o mermas a travess de la implementación de mejoras en los procesos.</option>
+                              <option value="Otra">Otra</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                       </div> 
                       <div class="empresa">
-                        Hola empresa
+                      <label for="nombreEmpresa" class="label">Nombre de la Empresa: </label>
+                    <div class="control has-icons-left">
+                      <input onChange={this.handleInput} type="nombreEmpresa" name="nombreEmpresa" id="nombreEmpresa"  class="input" placeholder="Nombre de Empresa"/>
+                       <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    </div>
+                    <div class="field">
+                        <label class="label">Giro de la empresa:</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="tipo" name="tipo" onChange={this.selectEstudios}>
+                              <option>Seleccione una opción </option>
+                              <option value="Comercial">Comercial</option>
+                              <option value="Industrial">Industrial</option>
+                              <option value="Servicios">Servicios</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="field">
+                        <label class="label">¿Qué brinda la empresa?</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="tipo" name="tipo" onChange={this.selectEstudios}>
+                              <option>Seleccione una opción </option>
+                              <option value="Prestraciones">Prestraciones</option>
+                              <option value="Seguro social">Seguro social</option>
+                              <option value="Transportación">Transportación</option>
+                              <option value="Salario">Salario</option>
+                              <option value="Capacitación">Capacitación</option>
+                              <option value="Oportunidad de crecimiento">Oportunidad de crecimiento</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
                       </div> 
                       <div class="reclutador">
-                        Hola reclutador
+                      <label for="nombreEmpresaRec" class="label">Nombre de la Empresa o Negocio al que pertenece: </label>
+                    <div class="control has-icons-left">
+                      <input onChange={this.handleInput} type="nombreEmpresaRec" name="nombreEmpresaRec" id="nombreEmpresaRec"  class="input" placeholder="Nombre de Empresa o Negocio al que pertenece"/>
+                       <span class="icon is-small is-left">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                    </div>
                       </div>                  
                     <div>
                       <input onChange={this.handleInput} type="hidden" name="isEmployee" value="true"/>
@@ -195,8 +299,6 @@ class Signup extends Component {
                       </p>
                     </div>
                    </form>
-
-                   
                 </div>
               </article>
             </div>

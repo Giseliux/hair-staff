@@ -1,12 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
+const Aspirante=require('../models/Aspirante');
 const passport = require('../config/passport');
 
 router.post('/signup', (req, res, next) => {
+  // const {email, name, puesto} =req.body
+  console.log(req.body)
   User.register(req.body, req.body.password)
+  
     .then((user) => res.status(201).json({ user }))
     .catch((err) => console.log(err));
+  // if tipo
+  //   crear objeto de aspirante reclutador o empresa
+  //   create (userId=user.id)  
 });
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
