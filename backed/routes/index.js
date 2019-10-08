@@ -4,16 +4,21 @@ const User = require('../models/User');
 const Aspirante=require('../models/Aspirante');
 const passport = require('../config/passport');
 
-router.post('/signup', (req, res, next) => {
-  // const {email, name, puesto} =req.body
+router.post('/signup',async (req, res, next) => {
+  console.log('entre a post')
+  console.log(req.body.tipo)
   console.log(req.body)
-  User.register(req.body, req.body.password)
-  
-    .then((user) => res.status(201).json({ user }))
-    .catch((err) => console.log(err));
-  // if tipo
-  //   crear objeto de aspirante reclutador o empresa
-  //   create (userId=user.id)  
+  const tipo = req.body.tipo
+  const user = await User.register(req.body, req.body.password)
+  console.log(user)
+  if(tipo == 'Aspirante'){
+    Aspirante.create({
+      'userId':user._id,'puesto':req.body.tipoPuesto,'edad':req.body.edad,
+      'nivelEstudios':req.body.nivelEstudios,'lugarEstudios':req.body.lugarEstudios,
+      'aporteEmpresa':req.body.aportacion,'nombreEmpresaSoli': req.body.nombreEmpresaSoli
+    })
+    console.log(Aspirante)
+  }
 });
 
 router.post('/login', passport.authenticate('local'), (req, res, next) => {
@@ -38,8 +43,16 @@ router.post('/edit', (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
+
 function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
 }
+
+// function creaAspirante(idAspirante){
+//   console.log('id Aspirante')
+//   console.log(idAspirante)
+// }
+
+
 
 module.exports = router;

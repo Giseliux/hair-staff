@@ -13,6 +13,7 @@ const aspiranteSchema = new Schema(
   edad:Number,
   nivelEstudios:String,
   lugarEstudios:String,
+  nombreEmpresaSoli:String,
   aporteEmpresa:String
   },
   {

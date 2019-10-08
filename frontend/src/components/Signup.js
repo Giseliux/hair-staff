@@ -81,7 +81,9 @@ class Signup extends Component {
       .then((response) => {
         console.log('entre a submit')
         console.log(response.data);
-        console.log(this.state.user)
+       
+        // const { aspirante } = response.data
+        // AUTH_SERVICE.creaAspirante(response.data.user._id)
       })
       .catch((error) => {
         console.log(error);
@@ -180,6 +182,19 @@ class Signup extends Component {
                       </div> 
                       <div class="aspirante">
                       <div class="field">
+                        <label class="label">Empresa a solicitar</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="nombreEmpresaSoli" name="nombreEmpresaSoli" onChange={this.handleInput}>
+                              <option>Seleccione una opción </option>
+                              <option value="empresa1">empresa1</option>
+                              <option value="empresa2">empresa2</option>
+                              <option value="empresa3">empresa3</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div> 
+                      <div class="field">
                         <label class="label">Puesto solicitado</label>
                         <div class="control">
                           <div class="select">
@@ -194,7 +209,6 @@ class Signup extends Component {
                           </div>
                         </div>
                       </div>
-                      <br/>
                     <label for="edad" class="label">Edad: </label>
                     <div class="control has-icons-left">
                       <input onChange={this.handleInput} type="edad" name="edad" id="edad"  class="input" placeholder="Edad" required/>
@@ -202,6 +216,7 @@ class Signup extends Component {
                       <i class="fa fa-lock"></i>
                     </span>
                     </div>
+                   
                     <div class="field">
                         <label class="label">Nivel de estudios</label>
                         <div class="control">
@@ -225,6 +240,7 @@ class Signup extends Component {
                       <i class="fa fa-lock"></i>
                     </span>
                     </div>
+                    <br></br>
                     <div class="field">
                         <label class="label">¿Qué puede aportar a la empresa?</label>
                         <div class="control">
