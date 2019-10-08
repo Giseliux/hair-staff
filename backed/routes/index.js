@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const Aspirante=require('../models/Aspirante');
+const Empresa=require('../models/Empresa');
+const Reclutador=require('../models/Reclutador');
 const passport = require('../config/passport');
 
 router.post('/signup',async (req, res, next) => {
@@ -17,7 +19,15 @@ router.post('/signup',async (req, res, next) => {
       'nivelEstudios':req.body.nivelEstudios,'lugarEstudios':req.body.lugarEstudios,
       'aporteEmpresa':req.body.aportacion,'nombreEmpresaSoli': req.body.nombreEmpresaSoli
     })
-    console.log(Aspirante)
+  }else if(tipo == 'Empresa'){
+    Empresa.create({
+      'userId':user._id,'nombreEmpresa':req.body.nombreEmpresa,'giroEmpresa':req.body.giroEmpresa,
+      'brinda':req.body.brinda
+    })
+  } else if(tipo == 'Reclutador'){
+    Reclutador.create({
+      'userId':user._id,'empresaPertenece':req.body.nombreEmpresaRec
+    })
   }
 });
 

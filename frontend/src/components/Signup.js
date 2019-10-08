@@ -211,7 +211,7 @@ class Signup extends Component {
                       </div>
                     <label for="edad" class="label">Edad: </label>
                     <div class="control has-icons-left">
-                      <input onChange={this.handleInput} type="edad" name="edad" id="edad"  class="input" placeholder="Edad" required/>
+                      <input onChange={this.handleInput} type="edad" name="edad" id="edad"  class="input" placeholder="Edad"/>
                        <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                     </span>
@@ -235,7 +235,7 @@ class Signup extends Component {
                       </div>
                       <label for="lugarEstudios" class="label">Lugar de Estudios: </label>
                     <div class="control has-icons-left">
-                      <input onChange={this.handleInput} type="lugarEstudios" name="lugarEstudios" id="lugarEstudios"  class="input" placeholder="Lugar de Estudios" required/>
+                      <input onChange={this.handleInput} type="lugarEstudios" name="lugarEstudios" id="lugarEstudios"  class="input" placeholder="Lugar de Estudios"/>
                        <span class="icon is-small is-left">
                       <i class="fa fa-lock"></i>
                     </span>
@@ -269,7 +269,7 @@ class Signup extends Component {
                         <label class="label">Giro de la empresa:</label>
                         <div class="control">
                           <div class="select">
-                            <select id="tipo" name="tipo" onChange={this.selectEstudios}>
+                            <select id="giroEmpresa" name="giroEmpresa" onChange={this.handleInput}>
                               <option>Seleccione una opción </option>
                               <option value="Comercial">Comercial</option>
                               <option value="Industrial">Industrial</option>
@@ -282,7 +282,7 @@ class Signup extends Component {
                         <label class="label">¿Qué brinda la empresa?</label>
                         <div class="control">
                           <div class="select">
-                            <select id="tipo" name="tipo" onChange={this.selectEstudios}>
+                            <select id="brinda" name="brinda" onChange={this.handleInput}>
                               <option>Seleccione una opción </option>
                               <option value="Prestraciones">Prestraciones</option>
                               <option value="Seguro social">Seguro social</option>
