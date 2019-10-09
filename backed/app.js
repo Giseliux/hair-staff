@@ -15,7 +15,7 @@ const session = require('express-session');
 const cors = require('cors');
 
 mongoose
-  .connect('mongodb://localhost/staff', {useNewUrlParser: true})
+  .connect(process.env.mongoDB,{useNewUrlParser:true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -27,6 +27,13 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ['http://localhost:3001']
+//   })
+// );
 
 app.use(
   cors({

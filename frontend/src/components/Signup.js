@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
+import axios from 'axios';
 
 
 class Signup extends Component {
@@ -9,9 +10,20 @@ class Signup extends Component {
     empresas:[]
   };
 
-  // dameEmpresa=(e)=>{
-  //   listaEmpresas = db.empresas.find()
-  // }
+  componentDidMount() {
+    console.log('entre a mount')
+    axios.get('http://localhost:3000/auth/empresas')
+   
+    .then((response) => {
+         this.setState({empresas:[...response.data.empresas]})
+         console.log(this.state.empresas)
+        })
+      .catch((error) => console.log(error))
+
+      for(var i in this.state.empresas){
+      document.getElementById("nombreEmpresaSoli").innerHTML += "<option value='"+this.state.empresas[i]+"'>"+this.state.empresas[i]+"</option>";
+      }
+    }
 
   selectTipo =(e)=>{
     //aqui activo el formulario para aspirante
@@ -86,9 +98,6 @@ class Signup extends Component {
       .then((response) => {
         console.log('entre a submit')
         console.log(response.data);
-       
-        // const { aspirante } = response.data
-        // AUTH_SERVICE.creaAspirante(response.data.user._id)
       })
       .catch((error) => {
         console.log(error);
@@ -191,10 +200,10 @@ class Signup extends Component {
                         <div class="control">
                           <div class="select">
                             <select id="nombreEmpresaSoli" name="nombreEmpresaSoli" onChange={this.handleInput}>
-                              <option>Seleccione una opción </option>
-                              <option value="empresa1">empresa1</option>
+                             <option>Seleccione una opción </option>
+                              {/* <option value="empresa1">empresa1</option>
                               <option value="empresa2">empresa2</option>
-                              <option value="empresa3">empresa3</option>
+                              <option value="empresa3">empresa3</option> */}
                             </select>
                           </div>
                         </div>

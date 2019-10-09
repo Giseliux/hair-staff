@@ -47,6 +47,12 @@ router.get('/loggedIn', isAuth, (req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 });
 
+router.get('/empresas',(req, res, next) => {
+  Empresa.find()
+    .then((empresas) => res.status(200).json({ empresas }))
+    .catch((err) => res.status(500).json({ err }));
+});
+
 router.post('/edit', (req, res, next) => {
   User.findByIdAndUpdate(req.user._id, {...req.body})
     .then((user) => res.status(200).json({ user }))
