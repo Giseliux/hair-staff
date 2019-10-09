@@ -31,7 +31,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ["https://hirestaff.netlify.com"]
+    origin: ['https://hirestaff.netlify.com']
   })
 );
 
