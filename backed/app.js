@@ -31,7 +31,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: [process.env.FRONT]
+    origin: ['http://localhost:3001', 'https://hirestaff.netlify.com']
   })
 );
 
@@ -61,7 +61,7 @@ app.use(require('node-sass-middleware')({
 }));
       
 app.use(function (req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
