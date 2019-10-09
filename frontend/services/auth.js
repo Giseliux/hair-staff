@@ -1,7 +1,7 @@
 import axios from 'axios';
-const isProduction= process.env.NODE_ENV !== 'production'
-const baseURL = isProduction ? 'http://localhost:3000/auth'
- : 'https://shrouded-retreat-49168.herokuapp.com/auth'
+const isProduction= process.env.NODE_ENV === 'production'
+const baseURL = isProduction ? 'https://shrouded-retreat-49168.herokuapp.com/auth'
+ : 'http://localhost:3000/auth'
 
 const SERVICE = axios.create({ withCredentials: true, baseURL });
 

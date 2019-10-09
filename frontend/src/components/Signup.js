@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 //import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
 import axios from 'axios';
-const isProduction= process.env.NODE_ENV !== 'production'
-const baseURL = isProduction ? 'http://localhost:3000/auth'
- : 'https://shrouded-retreat-49168.herokuapp.com/auth'
+const isProduction= process.env.NODE_ENV === 'production'
+const baseURL = isProduction ? 'https://shrouded-retreat-49168.herokuapp.com/auth'
+ : 'http://localhost:3000/auth'
 
 
 class Signup extends Component {
