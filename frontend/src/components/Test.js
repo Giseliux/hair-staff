@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
 import { MyContext } from '../context/index';
-// import {  Button } from 'antd';
-// import { Link } from 'react-router-dom'
-import axios from 'axios';
-const isProduction= process.env.NODE_ENV === 'production'
-const baseURL = isProduction ? 'http://localhost:3000/auth'
- : 'https://shrouded-retreat-49168.herokuapp.com/auth'
 
-
-export default class Profile extends Component {
-
+export default class Test extends Component {
+  
   state = {
     user: {
       name: ''
       
-    },
-    empresas:[],
-    aspirantes:[],
-    arrContenido:[]
+    }
   };
 
   ham=(e)=>{
@@ -29,51 +19,11 @@ export default class Profile extends Component {
     };
 
   componentDidMount() {
-    if (!this.context.state.loggedUser) return this.props.history.push('/login');
+    if (!this.context.state.loggedUser) return this.props.history.push('/test');
     const userinfo = this.context.state.loggedUser
-    const datosEmpresa='';
     this.setState( userinfo );
-    console.log('aqui voy')
     console.log(userinfo)
-
-    if(userinfo.tipo =="Aspirante"){
-      console.log('eres aspi')
-    
-    }else if(userinfo.tipo=="Empresa"){
-      console.log('eres empre')
-      console.log(userinfo._id)
-      axios.get(`${baseURL}/empresas/${this.context.state.loggedUser._id}`)
-      .then((response) => {
-        this.datosEmpresa=response.data.empresa[0].nombreEmpresa
-        console.log(this.datosEmpresa)
-       })
-      .catch((error) => console.log(error))
-     
-      axios.get(`${baseURL}/aspirantes`)
-      .then((response) => {
-         this.setState({aspirantes:[...response.data.aspirantes]})
-         console.log(this.state.aspirantes)
-      //    this.state.empresas.map((team) => 
-      //    <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)
-
-      //  this.state.aspirantes.map((element)=>
-      //       if(element.nombreEmpresa==this.datosEmpresa){
-      //         console.log('si es')
-      //         console.log(element)
-      //       }else{
-      //         console.log('no es')
-      //         console.log(element)
-      //       }
-      //   )
-      })
-      .catch((error) => console.log(error))
-
-
-
-
-    }else if(userinfo.tipo=="Reclutador"){
-      console.log('eres reclu')
-    }
+    console.log(this.context.state.loggedUser.user)
   }
 
   logout() {
@@ -122,35 +72,76 @@ export default class Profile extends Component {
            <div class="container has-text-centered">
                <div class="columns is-vcentered">
                     <div class="column is-5">
-                    
-		<div class="card">
-			<header class="card-header">
+                    <header class="card-header">
 				<p class="card-header-title">
 				Bienvenido {user.name}
 				</p>
 			</header>
-			<div class="card-content">
-				<div class="content">
-        <figure class="image is-128x128">
-                        <img class="is-rounded" src="/imagenes/avatar.png"/>
-                        </figure>
-                        Tipo de usuario: {user.tipo}
-                        <br></br>
-                        Correo: {user.email}
-				</div>
-			</div>
-      <div id="contenidoTipo">Aquì va el contenido
-      {/* {arregloContenido.map((team) => 
-           <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)} */}
-      </div>
-			<footer class="card-footer">
-				<a href="#" class="card-footer-item is-danger button" onClick={this.logout}>Cerrar sesión</a>
-				<a href="#" class="card-footer-item">Editar</a>
-				<a href="/test/" class="card-footer-item">Test</a>
-			</footer>
-		</div>
+                    
+        <form method="post" action="">
+                <div class="field">
+                  <label class="label">Pseudo</label>
+                  <div class="control has-icons-left has-icons-right">
+                   <input class="input" type="text" placeholder="Text input" value="el-a-k-balde.000webhostapp.com"/>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </div>
+                 <p class="help is-success">This username is available</p> 
+                </div>
 
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control has-icons-left has-icons-right">
+                   <input class="input " type="email" placeholder="Email input" value="talibadio"/>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-exclamation-triangle"></i>
+                    </span>
+                  </div>
+                <p class="help is-danger">This email is invalid</p>
+                </div>
 
+                <div class="field">
+                  <label class="label">Mot de pass</label>
+                  <p class="control has-icons-left">
+                    <input class="input" type="password" placeholder="Password"/>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+
+                <div class="field">
+                  <label class="label">Confirmer</label>
+                  <p class="control has-icons-left">
+                    <input class="input is-couleur_de_mon_choix" type="password" placeholder="Password_confirm"/>
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <label class="checkbox">
+                      <input type="checkbox"/>
+                      Se souvenir de moi
+                    </label>
+                  </div>
+                </div>
+
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button class="button is-primary">Submit</button>
+                  </div>
+                </div>
+              </form>
                     </div>
                </div>
            </div>
@@ -170,4 +161,4 @@ export default class Profile extends Component {
   }
 }
 
-Profile.contextType = MyContext;
+Test.contextType = MyContext;

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 //import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
 import axios from 'axios';
+const isProduction= process.env.NODE_ENV === 'production'
+const baseURL = isProduction ? 'http://localhost:3000/auth'
+ : 'https://shrouded-retreat-49168.herokuapp.com/auth'
 
 
 class Signup extends Component {
@@ -12,7 +15,7 @@ class Signup extends Component {
 
   componentDidMount() {
     console.log('entre a mount')
-    axios.get('http://localhost:3000/auth/empresas')
+    axios.get(`${baseURL}/empresas`)
    
     .then((response) => {
          this.setState({empresas:[...response.data.empresas]})
@@ -20,9 +23,6 @@ class Signup extends Component {
         })
       .catch((error) => console.log(error))
 
-      for(var i in this.state.empresas){
-      document.getElementById("nombreEmpresaSoli").innerHTML += "<option value='"+this.state.empresas[i]+"'>"+this.state.empresas[i]+"</option>";
-      }
     }
 
   selectTipo =(e)=>{
@@ -106,6 +106,7 @@ class Signup extends Component {
   };
 
   render() {
+    const { empresas } = this.state
     return (
         <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
@@ -201,9 +202,8 @@ class Signup extends Component {
                           <div class="select">
                             <select id="nombreEmpresaSoli" name="nombreEmpresaSoli" onChange={this.handleInput}>
                              <option>Seleccione una opción </option>
-                              {/* <option value="empresa1">empresa1</option>
-                              <option value="empresa2">empresa2</option>
-                              <option value="empresa3">empresa3</option> */}
+                               {this.state.empresas.map((team) => 
+                               <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)}
                             </select>
                           </div>
                         </div>
@@ -310,13 +310,18 @@ class Signup extends Component {
                       </div>
                       </div> 
                       <div class="reclutador">
-                      <label for="nombreEmpresaRec" class="label">Nombre de la Empresa o Negocio al que pertenece: </label>
-                    <div class="control has-icons-left">
-                      <input onChange={this.handleInput} type="nombreEmpresaRec" name="nombreEmpresaRec" id="nombreEmpresaRec"  class="input" placeholder="Nombre de Empresa o Negocio al que pertenece"/>
-                       <span class="icon is-small is-left">
-                      <i class="fa fa-lock"></i>
-                    </span>
-                    </div>
+                    <div class="field">
+                        <label class="label">Nombre de la Empresa o Negocio al que pertenece:</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="nombreEmpresaRec" name="nombreEmpresaRec" onChange={this.handleInput}>
+                             <option>Seleccione una opción </option>
+                               {this.state.empresas.map((team) => 
+                               <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)}
+                            </select>
+                          </div>
+                        </div>
+                      </div> 
                       </div>                  
                     <div>
                       <input onChange={this.handleInput} type="hidden" name="isEmployee" value="true"/>

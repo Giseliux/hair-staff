@@ -16,10 +16,6 @@ const AUTH_SERVICE = {
   edit: async (updateUser) =>{
     return await SERVICE.post('/edit', updateUser)
   }
-  // ,
-  // creaAspirante:async(idAspirante)=>{
-  //   return await SERVICE.post('/signup',idAspirante)
-  // }
 };
 
 export default AUTH_SERVICE;
