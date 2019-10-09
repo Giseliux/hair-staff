@@ -31,7 +31,7 @@ const app = express();
 app.use(
   cors({
     credentials: true,
-    origin: ['https://hirestaff.netlify.com']
+    origin: [process.env.FRONT]
   })
 );
 
@@ -85,8 +85,8 @@ const index = require('./routes/index');
 //ruta auth
 app.use('/auth', index);
 
-app.use("*", (req, res) => {
-  res.sendFile(`${__dirname}/public/index.html`);
-});
+// app.use("*", (req, res) => {
+//   res.sendFile(`${__dirname}/public/index.html`);
+// });
 
 module.exports = app;
