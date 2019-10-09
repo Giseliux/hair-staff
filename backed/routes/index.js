@@ -53,12 +53,27 @@ router.get('/empresas',(req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 });
 
+router.get('/aspirantes',(req, res, next) => {
+  Aspirante.find()
+    .then((aspirantes) => res.status(200).json({ aspirantes }))
+    .catch((err) => res.status(500).json({ err }));
+});
+
+router.get('/empresas/:id', async (req, res, next) => {
+  const empresa = await Empresa.find({userId:req.params.id})
+  res.status(200).json({empresa})
+    // .then((empresa) => res.status(200).json({ empresa }))
+    // .catch((error) => res.status(500).json({ error }));
+    console.log(req.params.id)
+    console.log('aquì voy2' )
+  console.log(empresa)
+});
+
 router.post('/edit', (req, res, next) => {
   User.findByIdAndUpdate(req.user._id, {...req.body})
     .then((user) => res.status(200).json({ user }))
     .catch((err) => console.log(err));
 });
-
 
 function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });

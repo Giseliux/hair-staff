@@ -28,19 +28,13 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-// app.use(
-//   cors({
-//     credentials: true,
-//     origin: ['http://localhost:3001']
-//   })
-// );
-
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:3001']
+    origin: ["https://hirestaff.netlify.com"]
   })
 );
+
 ////creacion de cookie
 app.use(
   session({
@@ -83,5 +77,8 @@ const index = require('./routes/index');
 //ruta auth
 app.use('/auth', index);
 
+app.use("*", (req, res) => {
+  res.sendFile(`${__dirname}/public/index.html`);
+});
 
 module.exports = app;
