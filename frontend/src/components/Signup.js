@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 //import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
 import axios from 'axios';
-const isProduction= process.env.NODE_ENV === 'production'
+const isProduction= process.env.NODE_ENV !== 'production'
 const baseURL = isProduction ? 'http://localhost:3000/auth'
  : 'https://shrouded-retreat-49168.herokuapp.com/auth'
 

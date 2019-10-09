@@ -3,7 +3,7 @@ import { MyContext } from '../context/index';
 // import {  Button } from 'antd';
 // import { Link } from 'react-router-dom'
 import axios from 'axios';
-const isProduction= process.env.NODE_ENV === 'production'
+const isProduction= process.env.NODE_ENV !== 'production'
 const baseURL = isProduction ? 'http://localhost:3000/auth'
  : 'https://shrouded-retreat-49168.herokuapp.com/auth'
 
