@@ -5,6 +5,7 @@ import Router from './Router';
 import 'antd/dist/antd.css';
 import * as serviceWorker from './serviceWorker';
 import MyProvider from './context/index';
+import 'bulma/css/bulma.css/'
 
 ReactDOM.render(
   <MyProvider>

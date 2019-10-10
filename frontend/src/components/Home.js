@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import {Button } from 'antd';
 import { MyContext } from '../context';
-// import { Link } from 'react-router-dom';
 import '../mystyles.scss';
 
 
@@ -17,19 +15,16 @@ class Home extends Component {
 
   render() {
     return (
+        <div>
       <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
-       <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon"></link> 
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>  
-       <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" />
        <section class="hero is-fullheight is-default is-bold">
        <div class="hero-head">
             <nav class="navbar">
-                <div class="container">
+                <div class="container menu">
                     <div class="navbar-brand ">
-                        <a class="navbar-item" href="../">
-                        <h1 >HIRE-STAFF</h1>
-                            {/* <img src="../images/bulma.png" alt="Logo"/> */}
+                        <a href="../">
+                        {/* <h1 >HIRE-STAFF</h1> */}
+                         <img src="../imagenes/logo.png" alt="Logo"/>
                         </a> 
                         <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
                             <span></span>
@@ -52,7 +47,7 @@ class Home extends Component {
                 </div>
             </nav>
         </div>
-       <div class="hero-body">
+       <div class="hero-body seccion1">
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
                     <div class="column is-5">
@@ -77,12 +72,12 @@ class Home extends Component {
                 </div>
             </div>
         </div>
-        <div class="hero-body" id="contenido">
+        <div class="hero-body seccion2" id="contenido">
             <div class="container has-text-centered">
                 <div class="columns is-vcentered">
                 <div class="column is-6 is-offset-1">
-                        <p>
-                         Hire Staff es una app pensada para ti que eres una startup y necesitas contratar a personal 
+                        <p class="texto">
+                         <strong>Hire Staff</strong> es una app pensada para ti que eres una startup y necesitas contratar a personal 
                            altamente calificado a bajo costo.
                            <br></br><br></br>
                            Esta app engloba aspectos generales a evaluar para la selección de nuevo personal, a través 
@@ -101,14 +96,15 @@ class Home extends Component {
 
         <div class="hero-foot">
              <div class="container">
-                 <div class="tabs is-centered">
+                 <div class="tabs is-centered textofoot">
                      <ul>
-                         <li><a>© 2019 </a></li>
+                         <li>Elaborado por Gisela Gasca - Irohack © 2019</li>
                      </ul>
                  </div>
              </div>
          </div>
         </section>
+       </div>
        </div>
     );
   }

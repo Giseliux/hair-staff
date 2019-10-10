@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { MyContext } from '../context/index';
-// import {  Button } from 'antd';
-// import { Link } from 'react-router-dom'
 import axios from 'axios';
+import '../mystyles.scss';
 const isProduction= process.env.NODE_ENV === 'production'
 const baseURL = isProduction ? 'https://shrouded-retreat-49168.herokuapp.com/auth'
  : 'http://localhost:3000/auth'
@@ -31,15 +30,15 @@ export default class Profile extends Component {
   componentDidMount() {
     if (!this.context.state.loggedUser) return this.props.history.push('/login');
     const userinfo = this.context.state.loggedUser
-    const datosEmpresa='';
+    // const datosEmpresa='';
     this.setState( userinfo );
     console.log('aqui voy')
     console.log(userinfo)
 
-    if(userinfo.tipo =="Aspirante"){
+    if(userinfo.tipo ==="Aspirante"){
       console.log('eres aspi')
     
-    }else if(userinfo.tipo=="Empresa"){
+    }else if(userinfo.tipo==="Empresa"){
       console.log('eres empre')
       console.log(userinfo._id)
       axios.get(`${baseURL}/empresas/${this.context.state.loggedUser._id}`)
@@ -71,7 +70,7 @@ export default class Profile extends Component {
 
 
 
-    }else if(userinfo.tipo=="Reclutador"){
+    }else if(userinfo.tipo==="Reclutador"){
       console.log('eres reclu')
     }
   }
@@ -84,18 +83,16 @@ export default class Profile extends Component {
   render() {
     const user = this.state
     return (
+      <div>
       <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
-      <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon"></link> 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>  
-      <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" />
       <section class="hero is-fullheight is-default is-bold">
       <div class="hero-head">
            <nav class="navbar">
-               <div class="container">
+               <div class="container menu">
                    <div class="navbar-brand ">
-                       <a class="navbar-item" href="../">
-                       <h1 >HIRE-STAFF</h1>
+                       <a href="../">
+                       {/* <h1 >HIRE-STAFF</h1> */}
+                        <img src="../imagenes/logo.png" alt="Logo"/>
                        </a> 
                        <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
                            <span></span>
@@ -107,10 +104,10 @@ export default class Profile extends Component {
                        <div class="navbar-end">
                            <div class="tabs is-right">
                                <ul class="menuppal">
-                                 <li class="is-active"><a href="/">Inicio</a></li>
-                                    <li><a href="/#contenido">Acerca de</a></li>
-                                    <li><a href="/signup">Registro</a></li>
-                                    <li><a href="/login">Iniciar sesión</a></li>
+                                   <li class="is-active"><a href="/">Inicio</a></li>
+                                   <li><a href="#contenido">Acerca de</a></li>
+                                   <li><a href="/signup">Registro</a></li>
+                                   <li><a href="/login">Iniciar sesión</a></li>
                                </ul>
                            </div>
                        </div>
@@ -118,7 +115,7 @@ export default class Profile extends Component {
                </div>
            </nav>
        </div>
-      <div class="hero-body">
+      <div class="hero-body infoProfile">
            <div class="container has-text-centered">
                <div class="columns is-vcentered">
                     <div class="column is-5">
@@ -132,7 +129,7 @@ export default class Profile extends Component {
 			<div class="card-content">
 				<div class="content">
         <figure class="image is-128x128">
-                        <img class="is-rounded" src="/imagenes/avatar.png"/>
+                        <img class="is-rounded" src="/imagenes/avatar.png" alt="avatar"/>
                         </figure>
                         Tipo de usuario: {user.tipo}
                         <br></br>
@@ -144,8 +141,8 @@ export default class Profile extends Component {
            <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)} */}
       </div>
 			<footer class="card-footer">
-				<a href="#" class="card-footer-item is-danger button" onClick={this.logout}>Cerrar sesión</a>
-				<a href="#" class="card-footer-item">Editar</a>
+				<a href="" class="card-footer-item is-danger button" onClick={this.logout}>Cerrar sesión</a>
+				<a href="" class="card-footer-item">Editar</a>
 				<a href="/test/" class="card-footer-item">Test</a>
 			</footer>
 		</div>
@@ -157,14 +154,15 @@ export default class Profile extends Component {
        </div>
       <div class="hero-foot">
            <div class="container">
-               <div class="tabs is-centered">
-                   <ul>
-                       <li><a>© 2019 </a></li>
-                   </ul>
-               </div>
+           <div class="tabs is-centered textofoot">
+                     <ul>
+                         <li>Elaborado por Gisela Gasca - Irohack © 2019</li>
+                     </ul>
+                 </div>
            </div>
        </div>
       </section>
+     </div>
      </div>
     );
   }

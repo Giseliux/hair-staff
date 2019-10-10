@@ -14,3 +14,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.pequena{
+  width: 150px; height: 500px;
+}
+
+.hero-head{
+  height: 5em;
+}
+
+.navbar-brand img{
+  width:10em;
+  height:5em;
+}
+
+.seccion1{
+  background-color: silver;
+}
+
+.seccion2{
+  background-color:#DCDCDC;
+}
+
+.texto{
+  font-size:1.5em;
+}
+
+.hero-foot{
+  background-color: darkslategray;
+}
+
+.textofoot{
+  color: white;
+  padding: 20px 20px;
+}
+
+.registroEstilos{
+  background-color: silver;
+}
+
+.card-content{
+  background-color: darkslategray;
+}
+
+.infoProfile{
+  background-color: silver;
+}

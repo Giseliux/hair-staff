@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-//import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/auth';
 import axios from 'axios';
+import '../mystyles.scss';
 const isProduction= process.env.NODE_ENV === 'production'
 const baseURL = isProduction ? 'https://shrouded-retreat-49168.herokuapp.com/auth'
  : 'http://localhost:3000/auth'
@@ -87,7 +87,7 @@ class Signup extends Component {
       const { user } = this.state;
       const key = e.target.name;
       user[key] = e.target.value;
-      console.log(user)
+      // console.log(user)
       this.setState({ user });
     };
 
@@ -106,43 +106,40 @@ class Signup extends Component {
   };
 
   render() {
-    const { empresas } = this.state
+    // const { empresas } = this.state
     return (
-        <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
-        <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon"></link> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>  
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" />
-        <section class="hero is-fullheight is-default is-bold">
-        <div class="hero-head">
-             <nav class="navbar">
-                 <div class="container">
-                     <div class="navbar-brand ">
-                         <a class="navbar-item" href="../">
-                         <h1 >HIRE-STAFF</h1>
-                             {/* <img src="../images/bulma.png" alt="Logo"/> */}
-                         </a> 
-                         <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
-                             <span></span>
-                             <span></span>
-                             <span></span>
-                         </span>
-                     </div>
-                     <div id="navbarMenu" class="navbar-menu ">
-                         <div class="navbar-end">
-                             <div class="tabs is-right">
-                                 <ul class="menuppal">
-                                 <li class="is-active"><a href="/">Inicio</a></li>
-                                    <li><a href="/#contenido">Acerca de</a></li>
-                                    <li><a href="/signup">Registro</a></li>
-                                    <li><a href="/login">Iniciar sesión</a></li>
-                                 </ul>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </nav>
-         </div>
+      <div>
+      <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
+      <section class="hero is-fullheight is-default is-bold">
+      <div class="hero-head">
+           <nav class="navbar">
+               <div class="container menu">
+                   <div class="navbar-brand ">
+                       <a href="../">
+                       {/* <h1 >HIRE-STAFF</h1> */}
+                        <img src="../imagenes/logo.png" alt="Logo"/>
+                       </a> 
+                       <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
+                           <span></span>
+                           <span></span>
+                           <span></span>
+                       </span>
+                   </div>
+                   <div id="navbarMenu" class="navbar-menu ">
+                       <div class="navbar-end">
+                           <div class="tabs is-right">
+                               <ul class="menuppal">
+                                   <li class="is-active"><a href="/">Inicio</a></li>
+                                   <li><a href="#contenido">Acerca de</a></li>
+                                   <li><a href="/signup">Registro</a></li>
+                                   <li><a href="/login">Iniciar sesión</a></li>
+                               </ul>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </nav>
+       </div>
         <div class="registroEstilos">
              <div class="container has-text-centered">
                  <div class="columns is-vcentered">
@@ -345,17 +342,17 @@ class Signup extends Component {
              </div>
          </div>
  
- 
         <div class="hero-foot">
              <div class="container">
-                 <div class="tabs is-centered">
+             <div class="tabs is-centered textofoot">
                      <ul>
-                         <li><a>© 2019 </a></li>
+                         <li>Elaborado por Gisela Gasca - Irohack © 2019</li>
                      </ul>
                  </div>
              </div>
          </div>
         </section>
+       </div>
        </div>
     );
   }
