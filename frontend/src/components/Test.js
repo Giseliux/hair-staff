@@ -34,18 +34,16 @@ export default class Test extends Component {
   render() {
     const user = this.state
     return (
-      <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"></link>
-      <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon"></link> 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>  
-      <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" />
+      <div>
+       <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
       <section class="hero is-fullheight is-default is-bold">
       <div class="hero-head">
            <nav class="navbar">
-               <div class="container">
+               <div class="container menu">
                    <div class="navbar-brand ">
-                       <a class="navbar-item" href="../">
-                       <h1 >HIRE-STAFF</h1>
+                       <a href="../">
+                       {/* <h1 >HIRE-STAFF</h1> */}
+                        <img src="../imagenes/logo.png" alt="Logo"/>
                        </a> 
                        <span class="navbar-burger burger" data-target="navbarMenu" onClick={this.ham}>
                            <span></span>
@@ -57,10 +55,10 @@ export default class Test extends Component {
                        <div class="navbar-end">
                            <div class="tabs is-right">
                                <ul class="menuppal">
-                                 <li class="is-active"><a href="/">Inicio</a></li>
-                                    <li><a href="/#contenido">Acerca de</a></li>
-                                    <li><a href="/signup">Registro</a></li>
-                                    <li><a href="/login">Iniciar sesión</a></li>
+                                   <li class="is-active"><a href="/">Inicio</a></li>
+                                   <li><a href="#contenido">Acerca de</a></li>
+                                   <li><a href="/signup">Registro</a></li>
+                                   <li><a href="/login">Iniciar sesión</a></li>
                                </ul>
                            </div>
                        </div>
@@ -79,68 +77,30 @@ export default class Test extends Component {
 			</header>
                     
         <form method="post" action="">
-                <div class="field">
-                  <label class="label">Pseudo</label>
-                  <div class="control has-icons-left has-icons-right">
-                   <input class="input" type="text" placeholder="Text input" value="el-a-k-balde.000webhostapp.com"/>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-user"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-check"></i>
-                    </span>
-                  </div>
-                 <p class="help is-success">This username is available</p> 
-                </div>
-
-                <div class="field">
-                  <label class="label">Email</label>
-                  <div class="control has-icons-left has-icons-right">
-                   <input class="input " type="email" placeholder="Email input" value="talibadio"/>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                      <i class="fas fa-exclamation-triangle"></i>
-                    </span>
-                  </div>
-                <p class="help is-danger">This email is invalid</p>
-                </div>
-
-                <div class="field">
-                  <label class="label">Mot de pass</label>
-                  <p class="control has-icons-left">
-                    <input class="input" type="password" placeholder="Password"/>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                  </p>
-                </div>
-
-                <div class="field">
-                  <label class="label">Confirmer</label>
-                  <p class="control has-icons-left">
-                    <input class="input is-couleur_de_mon_choix" type="password" placeholder="Password_confirm"/>
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-lock"></i>
-                    </span>
-                  </p>
-                </div>
-
-                <div class="field">
-                  <div class="control">
-                    <label class="checkbox">
-                      <input type="checkbox"/>
-                      Se souvenir de moi
-                    </label>
-                  </div>
-                </div>
-
-                <div class="field is-grouped">
-                  <div class="control">
-                    <button class="button is-primary">Submit</button>
-                  </div>
-                </div>
+        <p>Instrucciones: Para cada uno de los problemas siguientes, se sugieren cuatro respuestas;
+          indique colocando marcando la solución que usted considere más adecuada.</p>
+          <br></br><br></br>
+          <p>1.- Se le ha asignado un puesto en una gran empresa. La mejor forma de establecer relaciones amistosas y cordiales
+con sus nuevos compañeros será:</p>
+<br></br>
+          <div class="control">
+            <label class="radio">
+              <input type="radio" name="foobar"/>
+              Evitando tomar nota de los errores en que ellos incurran.
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar" checked/>
+              Hablando bien de ellos al jefe.
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar" checked/>
+              Mostrando interés en el trabajo de ellos.
+            </label>
+            <label class="radio">
+              <input type="radio" name="foobar" checked/>
+              Pidiéndoles le permitan hacer los trabajos que usted puede hacer mejor.
+            </label>
+          </div>
               </form>
                     </div>
                </div>
@@ -148,14 +108,15 @@ export default class Test extends Component {
        </div>
       <div class="hero-foot">
            <div class="container">
-               <div class="tabs is-centered">
-                   <ul>
-                       <li><a>© 2019 </a></li>
-                   </ul>
-               </div>
+           <div class="tabs is-centered textofoot">
+                     <ul>
+                         <li>Elaborado por Gisela Gasca - Irohack © 2019</li>
+                     </ul>
+                 </div>
            </div>
        </div>
       </section>
+     </div>
      </div>
     );
   }

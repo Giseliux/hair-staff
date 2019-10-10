@@ -55,24 +55,20 @@ export default class Profile extends Component {
       //    this.state.empresas.map((team) => 
       //    <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)
 
-      //  this.state.aspirantes.map((element)=>
-      //       if(element.nombreEmpresa==this.datosEmpresa){
-      //         console.log('si es')
-      //         console.log(element)
-      //       }else{
-      //         console.log('no es')
-      //         console.log(element)
-      //       }
-      //   )
       })
       .catch((error) => console.log(error))
-
-
-
-
     }else if(userinfo.tipo==="Reclutador"){
       console.log('eres reclu')
-    }
+      axios.get(`${baseURL}/empresas`)
+   
+      .then((response) => {
+           this.setState({empresas:[...response.data.empresas]})
+           console.log(this.state.empresas)
+          })
+        .catch((error) => console.log(error))
+  
+      }
+    
   }
 
   logout() {
@@ -82,6 +78,48 @@ export default class Profile extends Component {
 
   render() {
     const user = this.state
+    let userMessage
+    let cardRegistros
+
+    if (user.tipo==="Aspirante") {
+      userMessage = (
+        <a href="/test/" class="card-footer-item">Test</a>
+      )
+    }else if (user.tipo==="Empresa") {
+      userMessage = (
+        <a href="" class="card-footer-item">Aspirantes</a>
+      )
+
+      this.state.aspirantes.map((element)=>{
+        if(element.nombreEmpresaSoli===this.datosEmpresa){
+         console.log('si es')
+          console.log(element)
+          cardRegistros = (
+            <div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="/imagenes/avatar.png" alt="Avatar"/>
+    </figure>
+  </div>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-content">
+        <p class="title is-4">{element.puesto}</p>
+      </div>
+    </div>
+  </div>
+</div>
+          )
+        }
+     })
+
+    }else if (user.tipo==="Reclutador") {
+      userMessage = (
+        <a href="" class="card-footer-item">Empresas</a>
+      )
+    }
+
+
     return (
       <div>
       <div style={{alignItems: 'center',justifyContent: 'center',flexDirection: 'column'}}>
@@ -136,22 +174,41 @@ export default class Profile extends Component {
                         Correo: {user.email}
 				</div>
 			</div>
-      <div id="contenidoTipo">Aquì va el contenido
-      {/* {arregloContenido.map((team) => 
-           <option key={team.nombreEmpresa} value={team.nombreEmpresa}>{team.nombreEmpresa}</option>)} */}
-      </div>
 			<footer class="card-footer">
 				<a href="" class="card-footer-item is-danger button" onClick={this.logout}>Cerrar sesión</a>
 				<a href="" class="card-footer-item">Editar</a>
-				<a href="/test/" class="card-footer-item">Test</a>
+        { userMessage }
+        {/* <a href="/test/" class="card-footer-item">Test</a> */}
+        
 			</footer>
 		</div>
-
-
                     </div>
                </div>
            </div>
        </div>
+       <div class="hero-body seccion2" id="contenido">
+            <div class="container has-text-centered">
+                <div class="columns is-vcentered">
+                {cardRegistros}
+                {this.state.empresas.map((team) => 
+                                <div class="card">
+                                <div class="card-image">
+                                  <figure class="image is-4by3">
+                                    <img src="/imagenes/avatar.png" alt="Avatar"/>
+                                  </figure>
+                                </div>
+                                <div class="card-content">
+                                  <div class="media">
+                                    <div class="media-content">
+                                      <p class="title is-4">{team.nombreEmpresa}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>)}
+                </div>
+            </div>
+        </div>
+       
       <div class="hero-foot">
            <div class="container">
            <div class="tabs is-centered textofoot">

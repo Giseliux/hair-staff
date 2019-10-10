@@ -295,7 +295,7 @@ class Signup extends Component {
                           <div class="select">
                             <select id="brinda" name="brinda" onChange={this.handleInput}>
                               <option>Seleccione una opción </option>
-                              <option value="Prestraciones">Prestraciones</option>
+                              <option value="Prestraciones">Prestaciones</option>
                               <option value="Seguro social">Seguro social</option>
                               <option value="Transportación">Transportación</option>
                               <option value="Salario">Salario</option>
